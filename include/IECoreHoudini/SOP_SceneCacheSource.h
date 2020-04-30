@@ -117,7 +117,7 @@ class IECOREHOUDINI_API SOP_SceneCacheSource : public SceneCacheNode<SOP_Node>
 			ReturnType operator()( const T *data ) const;
 		};
 
-		IECore::ConstObjectPtr buildTransformPointCloud( const IECoreScene::SceneInterface *scene, Imath::M44d transform, double time, Parameters &params, size_t rootSize, std::string currentPath, bool hasObject );
+		IECore::ConstObjectPtr buildTransformPointCloud( const IECoreScene::SceneInterface *scene,const Imath::M44d transform,const double time, Parameters &params,const bool hasObject );
 
 };
 

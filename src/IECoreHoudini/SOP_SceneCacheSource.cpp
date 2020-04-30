@@ -308,7 +308,7 @@ OP_ERROR SOP_SceneCacheSource::cookMySop( OP_Context &context )
 	return error();
 }
 
-ConstObjectPtr SOP_SceneCacheSource::buildTransformPointCloud( const IECoreScene::SceneInterface *scene, Imath::M44d transform, double time, Parameters &params, size_t rootSize, std::string currentPath, bool hasObject )
+ConstObjectPtr SOP_SceneCacheSource::buildTransformPointCloud( const IECoreScene::SceneInterface *scene,const Imath::M44d transform,const double time, Parameters &params,const bool hasObject )
 {
 	params.hasAnimatedTopology = false;
 	params.hasAnimatedPrimVars = true;
@@ -464,7 +464,7 @@ void SOP_SceneCacheSource::loadObjects( const IECoreScene::SceneInterface *scene
 				}
 				else if( params.geometryType == TransformPointCloud )
 				{
-					object = buildTransformPointCloud( scene, currentTransform, time, params, rootSize, currentPath, true );
+					object = buildTransformPointCloud( scene, currentTransform, time, params, true );
 				}
 				else
 				{
@@ -489,7 +489,7 @@ void SOP_SceneCacheSource::loadObjects( const IECoreScene::SceneInterface *scene
 			}
 			else if( params.geometryType == TransformPointCloud )
 			{
-				object = buildTransformPointCloud( scene, currentTransform, time, params, rootSize, currentPath, false );
+				object = buildTransformPointCloud( scene, currentTransform, time, params, false );
 			}
 
 			if ( object )
